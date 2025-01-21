@@ -109,3 +109,40 @@ footer {
 footer p {
   font-size: 0.9rem;
 }
+
+#nomes-confirmados {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  min-height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* justify-content: space-between; */
+}
+
+.nome-item {
+  display: flex;
+  align-items: center;
+  background-color: #e6f7ff;
+  border: 1px solid #91d5ff;
+  border-radius: 20px;
+  padding: 5px 15px;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 50px;
+}
+
+.nome-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.nome-item label {
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+}
