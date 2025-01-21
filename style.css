@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #0044cc;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+header nav {
+  display: flex;
+  gap: 15px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+}
+
+.input-section,
+.roleta-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.input-section {
+  border-right: 2px solid #ddd;
+}
+
+.input-section h2 {
+  margin-bottom: 10px;
+}
+
+.input-section textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-section button {
+  background-color: #0044cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-section button:hover {
+  background-color: #003399;
+}
+
+.roleta-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.roleta {
+  width: 200px;
+  height: 200px;
+  border: 10px solid #0044cc;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0044cc;
+  text-align: center;
+  transform-style: preserve-3d;
+}
+
+footer {
+  background-color: #0044cc;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
