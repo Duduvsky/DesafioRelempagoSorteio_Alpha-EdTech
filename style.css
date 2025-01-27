@@ -53,6 +53,7 @@ main {
 
 .input-section h2 {
   margin-bottom: 10px;
+  font-size: 2rem;
 }
 
 .input-section textarea {
@@ -62,6 +63,7 @@ main {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .input-section button {
@@ -76,28 +78,6 @@ main {
 .input-section button:hover {
   background-color: #003399;
 }
-
-/* .roleta-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-/* .roleta {
-  width: 200px;
-  height: 200px;
-  border: 10px solid #0044cc;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #0044cc;
-  text-align: center;
-  transform-style: preserve-3d;
-} */
 
 footer {
   background-color: #0044cc;
@@ -121,7 +101,6 @@ footer p {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  /* justify-content: space-between; */
 }
 
 .nome-item {
@@ -180,10 +159,10 @@ footer p {
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
-  /* Adiciona estas propriedades para controlar a altura e rolagem */
-  max-height: 65vh; /* ou o valor que preferir */
+
+  max-height: 65vh;
   overflow-y: auto;
-  padding-right: 10px; /* Espaço para a barra de rolagem */
+  padding-right: 10px;
 }
 
 .log-item {
