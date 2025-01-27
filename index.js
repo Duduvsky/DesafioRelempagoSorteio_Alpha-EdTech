@@ -5,6 +5,8 @@ const btnSorteio = document.getElementById("btn-sortear");
 const qtdSorteio = document.getElementById("qtd-sorteio");
 const resultado = document.getElementById("resultado"); // Definido corretamente
 
+let sorteioCount = 0;
+
 function capitalize(nome) {
     return nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
 }
@@ -13,7 +15,14 @@ btnConfirmar.addEventListener("click", function () {
     const nomes = inputSorteio.value;
     const listaNomes = nomes.split(",").map(nome => nome.trim()).map(capitalize); // Capitaliza os nomes
 
-    nomesConfirmados.innerHTML = ""; // Limpa os nomes anteriores
+    if (listaNomes.length < 2) {
+        alert('Insira pelo menos 2 nomes!');
+        return;
+    }
+
+    nomesConfirmados.innerHTML = "";
+    sorteioCount = 0;
+    document.getElementById('sorteados-log').innerHTML = "";
 
     listaNomes.forEach((nome, index) => {
         const div = document.createElement("div");
@@ -34,14 +43,12 @@ btnConfirmar.addEventListener("click", function () {
 });
 
 btnSorteio.addEventListener("click", function () {
-    const checkboxes = nomesConfirmados.querySelectorAll("input[type='checkbox']");
+    const checkboxes = nomesConfirmados.querySelectorAll("input[type='checkbox']:checked");
     const nomesSelecionados = [];
 
     checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-            const label = checkbox.nextElementSibling;
-            nomesSelecionados.push(label.textContent);
-        }
+        const label = checkbox.nextElementSibling;
+        nomesSelecionados.push({ checkbox, nome: label.textContent });
     });
 
     if (nomesSelecionados.length === 0) {
@@ -55,14 +62,36 @@ btnSorteio.addEventListener("click", function () {
         return;
     }
 
+    // Array para armazenar os sorteados
     const sorteados = [];
+    const logContainer = document.getElementById('sorteados-log');
+
+    // Realiza a quantidade de sorteios especificada
     while (sorteados.length < qtd) {
+        // Pega um índice aleatório dos nomes ainda não sorteados
         const indiceAleatorio = Math.floor(Math.random() * nomesSelecionados.length);
-        const nomeSorteado = nomesSelecionados[indiceAleatorio];
-        if (!sorteados.includes(nomeSorteado)) {
-            sorteados.push(nomeSorteado);
-        }
+        const sorteado = nomesSelecionados[indiceAleatorio];
+
+        // Remove o sorteado da lista para não ser sorteado novamente
+        nomesSelecionados.splice(indiceAleatorio, 1);
+        sorteados.push(sorteado);
+
+        sorteioCount++;
+
+        // Cria o item de log
+        const logItem = document.createElement('div');
+        logItem.className = 'log-item';
+        logItem.innerHTML = `${sorteioCount}º sorteado: <span>${sorteado.nome}</span>`;
+        
+        // Adiciona ao log
+        logContainer.appendChild(logItem);
+
+        // Desabilita o checkbox do nome sorteado
+        sorteado.checkbox.checked = false;
+        sorteado.checkbox.disabled = true;
+        sorteado.checkbox.parentElement.style.opacity = '0.5';
     }
 
-    resultado.textContent = `Sorteados: ${sorteados.join(", ")}`;
+    // Atualiza o resultado com todos os nomes sorteados
+    // resultado.textContent = `Sorteados: ${sorteados.map(s => s.nome).join(", ")}`;
 });
