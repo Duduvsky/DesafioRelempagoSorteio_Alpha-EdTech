@@ -2,11 +2,16 @@ const inputSorteio = document.getElementById("input-sorteio");
 const btnConfirmar = document.getElementById("btn-confirmar");
 const nomesConfirmados = document.getElementById("nomes-confirmados");
 const btnSorteio = document.getElementById("btn-sortear");
+const qtdSorteio = document.getElementById("qtd-sorteio");
 const resultado = document.getElementById("resultado"); // Definido corretamente
+
+function capitalize(nome) {
+    return nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
+}
 
 btnConfirmar.addEventListener("click", function () {
     const nomes = inputSorteio.value;
-    const listaNomes = nomes.split(",").map(nome => nome.trim());
+    const listaNomes = nomes.split(",").map(nome => nome.trim()).map(capitalize); // Capitaliza os nomes
 
     nomesConfirmados.innerHTML = ""; // Limpa os nomes anteriores
 
@@ -44,6 +49,20 @@ btnSorteio.addEventListener("click", function () {
         return;
     }
 
-    const indiceAleatorio = Math.floor(Math.random() * nomesSelecionados.length);
-    resultado.textContent = `Nome sorteado: ${nomesSelecionados[indiceAleatorio]}`;
+    const qtd = parseInt(qtdSorteio.value, 10);
+    if (qtd > nomesSelecionados.length || qtd < 1) {
+        resultado.textContent = "Quantidade inválida para o sorteio.";
+        return;
+    }
+
+    const sorteados = [];
+    while (sorteados.length < qtd) {
+        const indiceAleatorio = Math.floor(Math.random() * nomesSelecionados.length);
+        const nomeSorteado = nomesSelecionados[indiceAleatorio];
+        if (!sorteados.includes(nomeSorteado)) {
+            sorteados.push(nomeSorteado);
+        }
+    }
+
+    resultado.textContent = `Sorteados: ${sorteados.join(", ")}`;
 });
