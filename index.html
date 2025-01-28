@@ -23,7 +23,7 @@
                 <h2>Insira os nomes</h2>
                 <textarea id="input-sorteio" placeholder="Digite os nomes separados por vírgula"></textarea>
                 <button id="btn-confirmar" >Confirmar</button>
-                <!-- <div id="nomes-confirmados"></div> -->
+                <input type="file" id="file-input" accept=".txt,.csv">
             </div>
             <div id="nomes-confirmados"></div>
             <div class="sorteio-config">
@@ -33,17 +33,17 @@
             <button id="btn-sortear">Sorteio</button>
             <p id="resultado"></p>
         </div>
-        
 
-        
-
-        <div class="roleta-section">
-            <div class="roleta">Roleta</div>
+        <div class="log-section">
+            <h2>Histórico de Sorteados</h2>
+            <div id="sorteados-log" class="sorteados-log">
+                <!-- Os resultados serão adicionados aqui dinamicamente -->
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>Projeto desenvolvido por [Nome dos Alunos] - [Instituição]</p>
+        <p>Projeto desenvolvido por [Luis Felipe, Matheus de Azevedo, Nicolas de Souza] - [Alpha EdTech]</p>
         <p>Contato: email@example.com</p>
     </footer>
 
