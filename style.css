@@ -166,3 +166,89 @@ footer p {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .input-section {
+    border-right: none;
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+  }
+
+  roleta-section {
+    padding: 20px 10px;
+  }
+
+  .roleta {
+    width: 150px;
+    height: 150px;
+    font-size: 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 10px;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #nomes-confirmados {
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nome-item {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+
+  .sorteio-config {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+.input-section button,
+  .sorteio-config input[type="number"] {
+    width: 100%;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .roleta {
+    width: 120px;
+    height: 120px;
+    font-size: 0.9rem;
+    border-width: 5px;
+  }
+
+  textarea {
+    height: 80px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  header h1 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  header nav a {
+    font-size: 0.9rem;
+  }
+
+  .input-section h2 {
+    font-size: 1.1rem;
+  }
+}
