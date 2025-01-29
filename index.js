@@ -4,6 +4,7 @@ const nomesConfirmados = document.getElementById("nomes-confirmados");
 const btnSorteio = document.getElementById("btn-sortear");
 const qtdSorteio = document.getElementById("qtd-sorteio");
 const resultado = document.getElementById("resultado");
+const btnVoltar = document.getElementById("btn-voltar");
 
 const fileInput = document.getElementById("file-input");
 
@@ -37,6 +38,7 @@ btnConfirmar.addEventListener("click", function () {
 
         const label = document.createElement("label");
         label.textContent = nome;
+        label.style.color = "blue"
         label.setAttribute("for", `checkbox-${index}`);
 
         div.append(checkbox, label);
@@ -45,6 +47,7 @@ btnConfirmar.addEventListener("click", function () {
 });
 
 btnSorteio.addEventListener("click", function () {
+
     const checkboxes = nomesConfirmados.querySelectorAll("input[type='checkbox']:checked");
     const nomesSelecionados = [];
 
@@ -59,10 +62,15 @@ btnSorteio.addEventListener("click", function () {
     }
 
     const qtd = parseInt(qtdSorteio.value, 10);
+
     if (qtd > nomesSelecionados.length || qtd < 1) {
         resultado.textContent = "Quantidade inválida para o sorteio.";
         return;
     }
+
+    document.querySelector(".input-section").style.display = "none"; // Oculta a seção de sorteio
+    document.getElementById("log-section").style.display = "block"; // Mostra a seção dos nomes sorteados
+
     const sorteados = [];
     const logContainer = document.getElementById('sorteados-log');
 
@@ -87,6 +95,16 @@ btnSorteio.addEventListener("click", function () {
     }
 
     resultado.textContent = ``;
+});
+
+btnVoltar.addEventListener("click", function () {
+    // Volta para a tela de sorteio
+    document.querySelector(".input-section").style.display = "block";
+    document.getElementById("log-section").style.display = "none"; 
+
+    // Limpa o histórico de sorteados ao voltar
+    // document.getElementById('sorteados-log').innerHTML = "";
+    // sorteioCount = 0;
 });
 
 fileInput.addEventListener("change", function(e) {
