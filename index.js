@@ -1,3 +1,7 @@
+import { TagLine } from "./modules/tag-line.js";
+import { handleFileInputChange } from "./modules/fileReaderModule.js";
+import { Sorteio } from "./modules/sorteio-line.js";
+
 const inputSorteio = document.getElementById("input-sorteio");
 const btnConfirmar = document.getElementById("btn-confirmar");
 const nomesConfirmados = document.getElementById("nomes-confirmados");
@@ -12,6 +16,10 @@ let sorteioCount = 0;
 
 function capitalize(nome) {
     return nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
+}
+function sorteioAdd() {
+    sorteioCount++;
+    return sorteioCount;
 }
 
 btnConfirmar.addEventListener("click", function () {
@@ -28,73 +36,13 @@ btnConfirmar.addEventListener("click", function () {
     document.getElementById('sorteados-log').innerHTML = "";
 
     listaNomes.forEach((nome, index) => {
-        const div = document.createElement("div");
-        div.classList.add("nome-item");
-
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = true;
-        checkbox.id = `checkbox-${index}`;
-
-        const label = document.createElement("label");
-        label.textContent = nome;
-        label.style.color = "blue"
-        label.setAttribute("for", `checkbox-${index}`);
-
-        div.append(checkbox, label);
-        nomesConfirmados.append(div);
+        const tag = TagLine(nome, index);
+        nomesConfirmados.appendChild(tag);
     });
 });
 
 btnSorteio.addEventListener("click", function () {
-
-    const checkboxes = nomesConfirmados.querySelectorAll("input[type='checkbox']:checked");
-    const nomesSelecionados = [];
-
-    checkboxes.forEach(checkbox => {
-        const label = checkbox.nextElementSibling;
-        nomesSelecionados.push({ checkbox, nome: label.textContent });
-    });
-
-    if (nomesSelecionados.length === 0) {
-        resultado.textContent = "Nenhum nome selecionado.";
-        return;
-    }
-
-    const qtd = parseInt(qtdSorteio.value, 10);
-
-    if (qtd > nomesSelecionados.length || qtd < 1) {
-        resultado.textContent = "Quantidade inválida para o sorteio.";
-        return;
-    }
-
-    document.querySelector(".input-section").style.display = "none"; // Oculta a seção de sorteio
-    document.getElementById("log-section").style.display = "block"; // Mostra a seção dos nomes sorteados
-
-    const sorteados = [];
-    const logContainer = document.getElementById('sorteados-log');
-
-    while (sorteados.length < qtd) {
-        const indiceAleatorio = Math.floor(Math.random() * nomesSelecionados.length);
-        const sorteado = nomesSelecionados[indiceAleatorio];
-
-        nomesSelecionados.splice(indiceAleatorio, 1);
-        sorteados.push(sorteado);
-
-        sorteioCount++;
-
-        const logItem = document.createElement('div');
-        logItem.className = 'log-item';
-        logItem.innerHTML = `${sorteioCount}º sorteado: <span>${sorteado.nome}</span>`;
-        
-        logContainer.appendChild(logItem);
-
-        sorteado.checkbox.checked = false;
-        sorteado.checkbox.disabled = true;
-        sorteado.checkbox.parentElement.style.opacity = '0.5';
-    }
-
-    resultado.textContent = ``;
+    Sorteio(qtdSorteio, resultado, nomesConfirmados, sorteioAdd);
 });
 
 btnVoltar.addEventListener("click", function () {
@@ -108,39 +56,5 @@ btnVoltar.addEventListener("click", function () {
 });
 
 fileInput.addEventListener("change", function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const content = e.target.result;
-        let listaNomes;
-        
-        if (file.name.endsWith('.csv')) {
-            // Para CSV, assume que os nomes estão na primeira coluna
-            listaNomes = content
-                .split('\n')
-                .map(line => line.split(',')[0].trim())
-                .filter(nome => nome.length > 0)
-                .map(capitalize);
-        } else if(file.name.endsWith('.txt')) {
-            // Para TXT, assume um nome por linha
-            listaNomes = content
-                .split('\n')
-                .map(nome => nome.trim())
-                .filter(nome => nome.length > 0)
-                .map(capitalize);
-        }
-
-        if (listaNomes.length < 2) {
-            alert('O arquivo deve conter pelo menos 2 nomes!');
-            return;
-        }
-
-        inputSorteio.value = listaNomes.join(', ');
-        
-        btnConfirmar.click();
-    };
-
-    reader.readAsText(file);
+    handleFileInputChange(e, inputSorteio, btnConfirmar, capitalize);
 });
