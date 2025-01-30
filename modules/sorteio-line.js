@@ -24,28 +24,31 @@ export function Sorteio(qtdSorteio, resultado, nomesConfirmados, sorteioAdd) {
     document.querySelector(".input-section").style.display = "none"; // Oculta a seção de sorteio
     document.getElementById("log-section").style.display = "block"; // Mostra a seção dos nomes sorteados
 
-    const sorteados = [];
     const logContainer = document.getElementById('sorteados-log');
 
-    while (sorteados.length < qtd) {
-        const indiceAleatorio = Math.floor(Math.random() * nomesSelecionados.length);
-        const sorteado = nomesSelecionados[indiceAleatorio];
+    let count = 0;
+    const interval = setInterval(() => {
+        if (count < qtd) {
+            const sorteado = nomesSelecionados[count];
+            let contador = sorteioAdd()
 
-        nomesSelecionados.splice(indiceAleatorio, 1);
-        sorteados.push(sorteado);
+            nomesSelecionados.splice(count, 1); // Remove o nome sorteado da lista
 
-        let count = sorteioAdd();
+            // Cria o item de log
+            const logItem = document.createElement('div');
+            logItem.className = 'log-item';
+            logItem.innerHTML = `${contador}º sorteado: <span>${sorteado.nome}</span>`;
+            
+            logContainer.appendChild(logItem);
 
-        const logItem = document.createElement('div');
-        logItem.className = 'log-item';
-        logItem.innerHTML = `${count}º sorteado: <span>${sorteado.nome}</span>`;
-        
-        logContainer.appendChild(logItem);
+            // Marca o nome como sorteado
+            sorteado.checkbox.checked = false;
+            sorteado.checkbox.disabled = true;
+            sorteado.checkbox.parentElement.style.opacity = '0.5';
 
-        sorteado.checkbox.checked = false;
-        sorteado.checkbox.disabled = true;
-        sorteado.checkbox.parentElement.style.opacity = '0.5';
-    }
-
-    resultado.textContent = ``;
+            count++;
+        } else {
+            clearInterval(interval); // Finaliza o intervalo quando todos os nomes forem sorteados
+        }
+    }, 500); // Intervalo de 1 segundo entre cada nome sorteado
 }
