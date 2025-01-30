@@ -74,27 +74,36 @@ btnSorteio.addEventListener("click", function () {
     const sorteados = [];
     const logContainer = document.getElementById('sorteados-log');
 
-    while (sorteados.length < qtd) {
-        const indiceAleatorio = Math.floor(Math.random() * nomesSelecionados.length);
-        const sorteado = nomesSelecionados[indiceAleatorio];
+    let count = 0;
+    const interval = setInterval(() => {
+        if (count < qtd) {
+            const sorteado = nomesSelecionados[count];
 
-        nomesSelecionados.splice(indiceAleatorio, 1);
-        sorteados.push(sorteado);
+            nomesSelecionados.splice(count, 1); // Remove o nome sorteado da lista
 
-        sorteioCount++;
+            // Cria o item de log
+            const logItem = document.createElement('div');
+            logItem.className = 'log-item';
+            logItem.innerHTML = `${sorteioCount + 1}º sorteado: <span>${sorteado.nome}</span>`;
+            
+            logContainer.appendChild(logItem);
+            sorteioCount++;
 
-        const logItem = document.createElement('div');
-        logItem.className = 'log-item';
-        logItem.innerHTML = `${sorteioCount}º sorteado: <span>${sorteado.nome}</span>`;
-        
-        logContainer.appendChild(logItem);
+            // Marca o nome como sorteado
+            sorteado.checkbox.checked = false;
+            sorteado.checkbox.disabled = true;
+            sorteado.checkbox.parentElement.style.opacity = '0.5';
 
-        sorteado.checkbox.checked = false;
-        sorteado.checkbox.disabled = true;
-        sorteado.checkbox.parentElement.style.opacity = '0.5';
-    }
+            count++;
+        } else {
+            clearInterval(interval); // Finaliza o intervalo quando todos os nomes forem sorteados
+        }
+    }, 700); // Intervalo de 1 segundo entre cada nome sorteado
+});
 
-    resultado.textContent = ``;
+document.getElementById("limpar-historico").addEventListener("click", () => {
+    document.getElementById('sorteados-log').innerHTML = ''; // Limpa todos os nomes da div do histórico
+    sorteioCount = 0; // Reseta a contagem do sorteio
 });
 
 btnVoltar.addEventListener("click", function () {
