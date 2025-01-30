@@ -65,7 +65,6 @@ btnSorteio.addEventListener("click", function () {
     document.querySelector(".input-section").style.display = "none"; // Oculta a seção de sorteio
     document.getElementById("log-section").style.display = "block"; // Mostra a seção dos nomes sorteados
 
-    const sorteados = [];
     const logContainer = document.getElementById('sorteados-log');
 
     let count = 0;
@@ -92,7 +91,7 @@ btnSorteio.addEventListener("click", function () {
         } else {
             clearInterval(interval); // Finaliza o intervalo quando todos os nomes forem sorteados
         }
-    }, 700); // Intervalo de 1 segundo entre cada nome sorteado
+    }, 500); // Intervalo de 1 segundo entre cada nome sorteado
 });
 
 document.getElementById("limpar-historico").addEventListener("click", () => {
