@@ -23,10 +23,11 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  gap: 20px;
 }
 
 header h1 {
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-family: Poppins;
 }
 
@@ -46,7 +47,7 @@ header nav a {
 main {
   display: flex;
   flex: 1;
-  padding: 20px;
+  padding: 0px 20px 20px 20px ;
   flex-direction: column;
   gap: 20px;  /* Ajusta o espaçamento entre as seções */
 }
@@ -147,6 +148,7 @@ h2 {
   border: 2px solid #FF1493;
   border-radius: 5px;
   min-height: 200px;
+  max-height: 200px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -206,7 +208,7 @@ h2 {
   border-radius: 8px;
   max-width: 600px;
   margin: 0 auto;
-  height: 87vh;
+  height: 83vh;
   display: none; /* Oculta inicialmente */
 }
 
@@ -215,6 +217,7 @@ h2 {
   background-color: #f5f5f5;
   border-radius: 8px;
   max-width: 400px;
+  min-height: 95%;
   flex: 1;
 }
 
@@ -223,7 +226,7 @@ h2 {
   flex-direction: column;
   gap: 10px;
   margin-top: 20px;
-  max-height: 65vh;
+  max-height: 60vh;
   overflow-y: auto;
   padding-right: 10px;
 }
@@ -270,7 +273,7 @@ h2 {
   width: auto; /* Garante que a largura seja ajustada de acordo com o conteúdo */
   max-width: 150px; /* Limita a largura do botão */
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
-  margin-top: 10px; /* Distância entre os botões */
+  /* margin-top: 10px; Distância entre os botões */
 }
 
 #limpar-historico:hover {
@@ -461,4 +464,12 @@ h2 {
   100% {
       opacity: 1;
   }
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: block;
 }
