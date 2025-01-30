@@ -9,9 +9,9 @@
 <body>
     <!-- Header da Página -->
     <header>
-        <img class="logo" src="./img/Logo.webp" alt="Logo da Galinhada Premiada">
+        <img class="logo01" src="./img/Logo.webp" alt="Logo da Galinhada Premiada">
         <h1>Galinhada Premiada</h1>
-        <img class="logo" src="./img/Logo.webp" alt="Logo da Galinhada Premiada">
+        <img class="logo02" src="./img/Logo.webp" alt="Logo da Galinhada Premiada">
     </header>
 
     <!-- Conteúdo principal da página -->
@@ -22,9 +22,11 @@
             <div>
                 <h2>Insira os nomes</h2>
                 <textarea id="input-sorteio" placeholder="Digite os nomes separados por vírgula"></textarea>
-                <button id="btn-confirmar" >Confirmar</button>
-                <label for="file-input" class="custom-file-btn">Escolher arquivo</label>
-                <input type="file" id="file-input" accept=".txt,.csv">
+                <div class="segura-btns">
+                    <button id="btn-confirmar" >Confirmar</button>
+                    <label for="file-input" class="custom-file-btn">Escolher arquivo</label>
+                    <input type="file" id="file-input" accept=".txt,.csv">
+                </div>
             </div>
             <!-- Lista dos nomes confirmados -->
             <div id="nomes-confirmados">
