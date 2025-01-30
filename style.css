@@ -27,6 +27,7 @@ header {
 
 header h1 {
   font-size: 1.5rem;
+  font-family: Poppins;
 }
 
 /* Navegação (se decidirem usar) */
@@ -66,21 +67,33 @@ h2 {
 .input-section h2 {
   margin-bottom: 10px;
   font-size: 2rem;
+  color: #e6f7ff;
+  font-family: Playfair Display;
 }
 
 .input-section textarea {
   width: 100%;
   height: 100px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #FF1493;
   border-radius: 5px;
   font-size: 20px;
   resize: vertical;
+  background-color: white;
+  font-family: Playfair Display;
+  box-shadow: 5px 5px 10px  rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.input-section textarea:focus{
+  box-shadow:  0px 0px 12px 3px rgba(0, 0, 0, 0.6);
+  border-color: #6a0dad;
+  outline: none;
 }
 
 .input-section .sorteio-config label {
-  color: deeppink;
+  color: white;
   font-size: 1rem;
   font-weight: bold;
 }
@@ -94,6 +107,7 @@ h2 {
   cursor: pointer;
   width: auto; /* Garante que a largura seja ajustada de acordo com o conteúdo */
   max-width: 100px; /* Limita a largura do botão */
+  box-shadow: 0px 5px 10px  rgba(0, 0, 0, 0.4);
 }
 
 .input-section button:hover {
@@ -114,7 +128,8 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
   float: right;
-  font-size: 0.9em;
+  font-size: 0.85em;
+  box-shadow: 0px 5px 10px  rgba(0, 0, 0, 0.4);
 }
 
 .custom-file-btn:hover {
@@ -129,13 +144,14 @@ h2 {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #FF1493;
   border-radius: 5px;
-  background-color: #f9f9f9;
   min-height: 200px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  background-color: white;
+  box-shadow: 0px 5px 10px  rgba(0, 0, 0, 0.4);
   overflow: auto;
 }
 
@@ -183,8 +199,7 @@ h2 {
 /* Seção de Log (Histórico de Sorteados) */
 #log-section {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   flex-direction: column;
   padding: 20px;
   background-color: #f5f5f5;
@@ -219,6 +234,8 @@ h2 {
   border-left: 4px solid #0044cc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in forwards;
+  opacity: 0; /* Começa invisível */
 }
 
 .log-item span {
@@ -234,8 +251,37 @@ h2 {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  box-shadow: 5px 5px 8px  rgba(0, 0, 0, 0.2);
   /* margin-top: 20px; */
 }
+
+#btn-voltar:hover{
+  background-color: #003399;
+}
+
+/* Estilo do botão Limpar Histórico */
+#limpar-historico {
+  background-color: #FF6347; /* Cor de fundo vermelho */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: auto; /* Garante que a largura seja ajustada de acordo com o conteúdo */
+  max-width: 150px; /* Limita a largura do botão */
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  margin-top: 10px; /* Distância entre os botões */
+}
+
+#limpar-historico:hover {
+  background-color: #D84C40; /* Cor mais escura quando o mouse passa sobre */
+}
+
+#limpar-historico:focus {
+  outline: none;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6); /* Efeito de foco */
+}
+
 
 /* Barra de rolagem personalizada */
 .sorteados-log::-webkit-scrollbar {
@@ -403,5 +449,16 @@ h2 {
 
   .input-section h2 {
     font-size: 1.1rem;
+  }
+}
+
+/* Definindo a animação para os nomes sorteados */
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
   }
 }
