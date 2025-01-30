@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desafio Relâmpago - AlphaEdTech</title>
+    <title>Galinhada Premiada</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
+    <!-- Header da Página -->
     <header>
-        <h1>Sorteio de Nomes</h1>
-        <!-- <nav>
-            <a href="#">Opção 1</a>
-            <a href="#">Opção 2</a>
-            <a href="#">Opção 3</a>
-        </nav> -->
+        <img class="logo" src="./img/Logo.webp" alt="Logo da Galinhada Premiada">
+        <h1>Galinhada Premiada</h1>
+        <img class="logo" src="./img/Logo.webp" alt="Logo da Galinhada Premiada">
     </header>
 
+    <!-- Conteúdo principal da página -->
     <main>
+        <!-- Div que segura o input e visual da lista para o sorteio -->
         <div class="input-section">
+            <!-- Div da criação da lista para sorteio -->
             <div>
                 <h2>Insira os nomes</h2>
                 <textarea id="input-sorteio" placeholder="Digite os nomes separados por vírgula"></textarea>
@@ -26,32 +26,34 @@
                 <label for="file-input" class="custom-file-btn">Escolher arquivo</label>
                 <input type="file" id="file-input" accept=".txt,.csv">
             </div>
-            <div id="nomes-confirmados"></div>
+            <!-- Lista dos nomes confirmados -->
+            <div id="nomes-confirmados">
+                <!-- Os nomes confirmados serão adicionados aqui dinamicamente -->
+            </div>
+            <!-- Configuração do sorteio -->
             <div class="sorteio-config">
                 <label for="qtd-sorteio">Quantidade de sorteados:</label>
                 <input type="number" id="qtd-sorteio" min="1" value="1">
             </div>
+            <!-- Botão para o início do sorteio -->
             <button id="btn-sortear">Sorteio</button>
-            <p id="resultado"></p>
         </div>
+
+        <!-- Div responsável por segurar o resultado do sorteio -->
         <div id="log-section">
+            <!-- Histório do sorteio -->
             <div class="log-section">
                 <h2>Histórico de Sorteados</h2>
                 <div id="sorteados-log" class="sorteados-log">
                     <!-- Os resultados serão adicionados aqui dinamicamente -->
                 </div>
             </div>
+            <!-- Voltar para a configuração do sorteio -->
             <button id="btn-voltar">Voltar</button>
+            <!-- Limpar histórico para melhor visualização do sorteio -->
             <button id="limpar-historico">Limpar Histórico</button>
         </div>
-        
-        
     </main>
-
-    <!-- <footer>
-        <p>Projeto desenvolvido por [Luis Felipe, Matheus de Azevedo, Nicolas de Souza] - [Alpha EdTech]</p>
-        <p>Contato: email@example.com</p>
-    </footer> -->
 
     <script src="index.js" type="module"></script>
 </body>
