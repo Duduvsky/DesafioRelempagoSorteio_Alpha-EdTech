@@ -2,7 +2,7 @@
 export function LogLine(contador, sorteado) {
     const logItem = document.createElement('div');
     logItem.className = 'log-item';
-    logItem.innerHTML = `${contador}º sorteado: <span>${sorteado.nome}</span>`;
+    logItem.innerHTML = `${contador}º sorteado: <span>${sorteado.nome} ☕️ </span>`;
 
     return logItem;
 }

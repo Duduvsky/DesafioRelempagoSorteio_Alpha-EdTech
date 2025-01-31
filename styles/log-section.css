@@ -1,0 +1,105 @@
+/* Seção de Log (Histórico de Sorteados) */
+#log-section {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    height: 83vh;
+    display: none; /* Oculta inicialmente */
+  }
+  
+  .log-section {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    max-width: 400px;
+    min-height: 95%;
+    flex: 1;
+  }
+  
+  .sorteados-log {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+  
+  .log-item {
+    padding: 10px;
+    background-color: #fff;
+    border-left: 4px solid #0044cc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in forwards;
+    opacity: 0; /* Começa invisível */
+  }
+  
+  .log-item span {
+    font-weight: bold;
+    color: #0044cc;
+  }
+  
+  /* Estilos do Botão Voltar */
+  #btn-voltar {
+    background-color: indianred;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 8px  rgba(0, 0, 0, 0.2);
+    /* margin-top: 20px; */
+  }
+  
+  #btn-voltar:hover{
+    background-color: #003399;
+  }
+  
+  /* Estilo do botão Limpar Histórico */
+  #limpar-historico {
+    background-color: #FF6347; /* Cor de fundo vermelho */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto; /* Garante que a largura seja ajustada de acordo com o conteúdo */
+    max-width: 150px; /* Limita a largura do botão */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+    /* margin-top: 10px; Distância entre os botões */
+  }
+  
+  #limpar-historico:hover {
+    background-color: #D84C40; /* Cor mais escura quando o mouse passa sobre */
+  }
+  
+  #limpar-historico:focus {
+    outline: none;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.6); /* Efeito de foco */
+  }
+  
+  /* Barra de rolagem personalizada */
+  .sorteados-log::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .sorteados-log::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .sorteados-log::-webkit-scrollbar-thumb {
+    background: #0044cc;
+    border-radius: 4px;
+  }
+  
+  .sorteados-log::-webkit-scrollbar-thumb:hover {
+    background: #003399;
+  }

@@ -1,0 +1,140 @@
+/* Seção de Entrada de Dados */
+.input-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .input-section h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #5D3A2D;
+    font-family: Playfair Display;
+  }
+  
+  .input-section textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #FF1493;
+    border-radius: 5px;
+    font-size: 20px;
+    resize: vertical;
+    background-color: white;
+    font-family: Playfair Display;
+    box-shadow: 5px 5px 10px  rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .input-section textarea:focus{
+    box-shadow:  0px 0px 12px 3px rgba(0, 0, 0, 0.6);
+    border-color: #6a0dad;
+    outline: none;
+  }
+  
+  .input-section .sorteio-config label {
+    color: #5D3A2D;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .input-section button {
+    background-color: indianred;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto; /* Garante que a largura seja ajustada de acordo com o conteúdo */
+    max-width: 100px; /* Limita a largura do botão */
+    box-shadow: 0px 5px 10px  rgba(0, 0, 0, 0.4);
+  }
+  
+  .input-section button:hover {
+    background-color: #003399;
+  }
+  
+  /* Oculta o input de arquivo */
+  #file-input {
+    display: none;
+  }
+  
+  /* Estilo do botão customizado */
+  .custom-file-btn {
+    background-color: indianred;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+    font-size: 0.85em;
+    box-shadow: 0px 5px 10px  rgba(0, 0, 0, 0.4);
+  }
+  
+  .custom-file-btn:hover {
+    background-color: #003399;
+  }
+  
+  .custom-file-btn:focus {
+    outline: none;
+  }
+  
+  #nomes-confirmados {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #FF1493;
+    border-radius: 5px;
+    min-height: 200px;
+    max-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: white;
+    box-shadow: 0px 5px 10px  rgba(0, 0, 0, 0.4);
+    overflow: auto;
+  }
+  
+  .nome-item {
+    display: flex;
+    align-items: center;
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+    border-radius: 20px;
+    padding: 5px 15px;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 50px;
+  }
+  
+  .nome-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+  
+  .nome-item label {
+    font-size: 1rem;
+    color: #f2e8e8;
+    cursor: pointer;
+  }
+  
+  .sorteio-config {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .sorteio-config label {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .sorteio-config input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
