@@ -494,6 +494,10 @@ h1 {
     gap: 10px;
   }
 
+  .sorteados-log {
+    max-height: 40vh;
+  }
+
 }
 
 @media (max-width: 360px) {
