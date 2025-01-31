@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: url(img/bullseye-gradient.svg) no-repeat center center;
+  background: url(img/radiant-gradient\ \(3\).svg) no-repeat center center;
   background-size: cover;
 }
 
@@ -32,16 +32,16 @@ header h1 {
 }
 
 /* Navegação (se decidirem usar) */
-header nav {
+/* header nav {
   display: flex;
   gap: 15px;
 }
 
 header nav a {
-  color: white;
+  color: #5D3A2D;
   text-decoration: none;
   font-weight: bold;
-}
+} */
 
 /* Seção Principal */
 main {
@@ -53,8 +53,8 @@ main {
 }
 
 /* Títulos e texto */
-h2 {
-  color: deeppink;
+h1 {
+  color: #5D3A2D;
 }
 
 /* Seção de Entrada de Dados */
@@ -68,7 +68,7 @@ h2 {
 .input-section h2 {
   margin-bottom: 10px;
   font-size: 2rem;
-  color: #e6f7ff;
+  color: #5D3A2D;
   font-family: Playfair Display;
 }
 
@@ -94,7 +94,7 @@ h2 {
 }
 
 .input-section .sorteio-config label {
-  color: white;
+  color: #5D3A2D;
   font-size: 1rem;
   font-weight: bold;
 }
@@ -349,6 +349,7 @@ h2 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
+    margin-top: 20px;
   }
 
   .nome-item {
@@ -385,9 +386,13 @@ h2 {
 
   #log-section {
     height: auto;
-    min-height: 60vh;
+    height: 75vh;
     max-width: 90%;
     padding: 25px;
+  }
+
+  .log-section{
+    min-height: 90%;
   }
 
   .sorteados-log {
@@ -473,6 +478,13 @@ h2 {
   .nome-item label {
     font-size: 0.9rem
   }
+
+
+
+  #limpar-historico:active {
+    background-color: #FF6347 !important; /* Mantém a cor original após o clique */
+  }
+
 
   .segura-btns {
     display: flex;
